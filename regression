@@ -1,0 +1,39 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns 
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Lasso
+from sklearn import metrics 
+
+data collection and processing 
+
+nba_dataset = pd.read_csv('/nba_playoffs.csv')
+#extracting data from csv to pandas dataframe 
+
+nba_dataset.shape
+#rows and columns in dataframe 
+
+nba_dataset.info()
+#additional info of data
+
+#checking missing values 
+nba_dataset.isnull().sum()
+
+nba_dataset.head()
+#first five rows of df 
+
+X = nba_dataset.drop(['seed','conf_abbr', 'games_played'],axis=1)
+#while dropping col, axis=1 for row axis=0
+
+print (X)
+
+
+Y = nba_dataset['games_played']
+print (Y)
+
+#splitting of training and testing dataset
+X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.1,random_state=2)
+
+lin_reg_model = LinearRegression()
+lin_reg_model.fit(X_test, Y_test)
