@@ -1,4 +1,5 @@
 **Project Overview**
+
 This project predicts **NBA playoff outcomes** using **Linear Regression** based on team performance metrics. 
 The model analyzes historical data to forecast the factors impact the game.  
 
