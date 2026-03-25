@@ -1,0 +1,12 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+def plot_data(df):
+    sns.countplot(x='playoff_qualified', data=df)
+    plt.title("Playoff Qualification Distribution")
+    plt.savefig("outputs/plots/playoff_distribution.png")
+    plt.show()
+
+    sns.heatmap(df.corr(), annot=True)
+    plt.savefig("outputs/plots/correlation.png")
+    plt.show()
